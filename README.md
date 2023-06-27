@@ -10,7 +10,7 @@ To generate a newline, we use **“\n”** in _C printf() statement._
 
 ### Authors :rocket:
 - Victor Osibajo
-- Confidence Daniel
+- Komepraise Ogbenekome
 
 `All the love from` [ALX](https://www.alxafrica.com/) ***to the African Continent***
 
