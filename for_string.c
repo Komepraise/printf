@@ -7,6 +7,7 @@ int for_string(char *string)
 	{
 		_putchar(string[element]);
 		val += 1;
+		element++;
 	}
 	return (val);
 
