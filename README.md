@@ -1,4 +1,4 @@
-### ALX Software Engineering Programme project on creating custom printf collaboratively
+### ALX Software Engineering Programme project on creating custom printf collaboratively :book:
 
 >In C programming language, **printf()** function is used to print the (“character, string, float, integer, octal and hexadecimal values”) onto the output screen.
 >We use printf() function with %d format specifier to display the value of an integer variable.
@@ -6,7 +6,7 @@
 
 ---
 
-`To generate a newline, we use “\n” in _C printf() statement._
+`To generate a newline, we use “\n” in _C printf() statement._`
 
 ### Authors :rocket:
 - Victor Osibajo
