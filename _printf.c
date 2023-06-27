@@ -1,85 +1,45 @@
 #include "main.h"
-#include <stdarg.h>
-#include <unistd.h>
-
 /**
-  * selectFormat - chose format specifier for the _printf
-  * @format: pointer to format character string
-  *
-  * Return: function or NULL
-  */
-int (*selectFormat(const char *format))(va_list)
+ * _printf - selects function to be printed to standard output
+ * @format: format identfier
+ * Return: string lenght
+ */
+int _printf(const char * const format, ...)
 {
-	unsigned int i = 0;
-	f_spec format_list[] = {
-		{"c", _print_char},
-		{"s", _print_string},
-		{"i", _print_int},
-		{"d", _print_dec},
-		{"r", _print_rev},
-		{"b", _print_bin},
-		{"u", _print_unsigned},
-		{"o", _print_octal},
-		{"x", _print_x},
-		{"X", _print_X},
-		{"R", _print_rot13},
-		{NULL, NULL}
+	match_string m[] = {
+		{"%s", printf_string}, {"%c", printf_char},
+		{"%%", printf_37},
+		{"%i", printf_int}, {"%d", printf_dec}, {"%r", printf_srev},
+		{"%R", printf_rot13}, {"%b", printf_bin}, {"%u", printf_unsigned},
+		{"%o", printf_oct}, {"%x", printf_hex}, {"%X", printf_HEX},
+		{"%S", printf_exclusive_string}, {"%p", printf_pointer}
 	};
 
-	while (format_list[i].fp)
+	va_list args;
+	int i = 0, j, len = 0;
+
+	va_start(args, format);
+	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
+		return (-1);
+
+Here:
+	while (format[i] != '\0')
 	{
-		if (format_list[i].fp[0] == (*format))
-			return (format_list[i].f);
+		j = 13;
+		while (j >= 0)
+		{
+			if (m[j].id[0] == format[i] && m[j].id[1] == format[i + 1])
+			{
+				len += m[j].f(args);
+				i = i + 2;
+				goto Here;
+			}
+			j--;
+		}
+		_putchar(format[i]);
+		len++;
 		i++;
 	}
-	return (NULL);
-}
-
-/**
-  * _printf - produces output based on the format
-  * @format: char string - which can be 0 or more directives
-  *
-  * Return: the string lenght
-  */
-int _printf(const char *format, ...)
-{
-	va_list arg;
-	int (*f)(va_list);
-	unsigned int i = 0, arg_string = 0;
-
-	if (format == NULL)
-		return (-1);
-	va_start(arg, format);
-	while (format[i])
-	{
-		while (format[i] != '%' && format[i])
-		{
-			_putchar(format[i]);
-			arg_string++;
-			i++;
-		}
-
-		if (format[i] == '\0')
-			return (arg_string);
-
-		f = selectFormat(&format[i + 1]);
-		if (f != NULL)
-		{
-			arg_string += f(arg);
-			i += 2;
-			continue;
-		}
-
-		if (!format[i + 1])
-			return (-1);
-		_putchar(format[i]);
-		arg_string++;
-		if (format[i + 1] == '%')
-			i += 2;
-		else
-			i++;
-	}
-
-	va_end(arg);
-	return (arg_string);
+	va_end(args);
+	return (len);
 }
