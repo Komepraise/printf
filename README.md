@@ -6,7 +6,7 @@
 
 ---
 
-`To generate a newline, we use “\n” in _C printf() statement._`
+To generate a newline, we use **“\n”** in _C printf() statement._
 
 ### Authors :rocket:
 - Victor Osibajo
