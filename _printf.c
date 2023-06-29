@@ -23,7 +23,9 @@ int _printf(const char *format, ...)
 		}
 		else if (format[int_int] == 's')
 		{
-			_putstr(va_arg(arg_no, char *));
+			int ret_st = _putstr(va_arg(arg_no, char *));
+			int_int++;
+			ret_val += (ret_st - 1);
 
 		}
 			ret_val += 1;
