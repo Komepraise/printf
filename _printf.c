@@ -28,9 +28,10 @@ int _printf(const char *format, ...)
 			ret_val += (ret_st - 1);
 		}
 		else if (format[int_int] == '%')
+		{
 			_putchar('%');
+		}
 			ret_val += 1;
-
 	}
 		return (ret_val);
 
