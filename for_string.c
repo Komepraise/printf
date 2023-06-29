@@ -16,6 +16,7 @@ int _putstr(char *s)
 		{
 			_putchar(s[el]);
 			ret_val += 1;
+			el++;
 		}
 	}
 	return (ret_val);
