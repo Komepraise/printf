@@ -5,7 +5,6 @@
  * @arg: arguments.
  * Return: coun.
  */
-
 int print_HEX(va_list arg)
 {
 	int x;
@@ -36,8 +35,6 @@ int print_HEX(va_list arg)
 	free(arr);
 	return (count);
 }
-
-
 
 /**
  * print_HEX_aux - prints an hexgecimal number.
@@ -73,7 +70,6 @@ int print_HEX_aux(unsigned int numb)
 	free(arr);
 	return (count);
 }
-
 
 /**
  * print_hex - prints an hexgecimal number.

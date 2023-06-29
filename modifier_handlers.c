@@ -1,5 +1,3 @@
-
-
 #include "main.h"
 
 /**
@@ -11,7 +9,6 @@ int print_37(void)
 	_putchar('%');
 	return (1);
 }
-
 
 /**
  * print_char - prints a character.
@@ -97,7 +94,6 @@ int print_int(va_list args)
 		}
 	}
 	_putchar(w + '0');
-
 	return (z);
 }
 
