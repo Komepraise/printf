@@ -1,39 +1,41 @@
 #include "main.h"
 /**
- * _printf - selects function to be printed to standard output
- * @format: format identfier
- * Return: string lenght
+ * _printf - is a function that selects the correct function to print.
+ * @format: identifier to look for.
+ * Return: the length of the string.
  */
-int _printf(const char *format, ...)
+int _printf(const char * const format, ...)
 {
-	unsigned int_int = 0, ret_val = 0;
-	va_list arg_no;
-	va_start(arg_no, format);
+	convert_match m[] = {
+		{"%s", print_string}, {"%c", print_char},
+		{"%%", print_%},
+		{"%i", print_int}, {"%d", print_dec};
 
-	for(; format[int_int] != '\0'; int_int++)
+	va_list args;
+	int x = 0, x, z = 0;
+
+	va_start(args, format);
+	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
+		return (-1);
+
+Here:
+	while (format[x] != '\0')
 	{
-		if(format[int_int] != '%')
+		x = 13;
+		while (x >= 0)
 		{
-			_putchar(format[int_int]);
+			if (m[x].id[0] == format[x] && m[x].id[1] == format[x + 1])
+			{
+				z += m[x].f(args);
+				x = x + 2;
+				goto Here;
+			}
+			x--;
 		}
-		else if (format[int_int] == 'c')
-		{
-			_putchar(va_arg(arg_no, int));
-			int_int++;	
-		}
-		else if (format[int_int] == 's')
-		{
-			int ret_st = _putstr(va_arg(arg_no, char *));
-			int_int++;
-			ret_val += (ret_st - 1);
-		}
-		else if (format[int_int] == '%')
-		{
-			_putchar('%');
-		}
-			ret_val += 1;
+		_putchar(format[x]);
+		z++;
+		x++;
 	}
-		return (ret_val);
-
-
+	va_end(args);
+	return (z);
 }
