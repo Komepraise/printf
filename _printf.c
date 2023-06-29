@@ -15,9 +15,13 @@ int _printf(const char *format, ...)
 		if(format[int_int] != '%')
 		{
 			_putchar(format[int_int]);
-			ret_val += 1;
 		}
-		
+		else if (format[int_int] == 'c')
+		{
+			_putchar(va_arg(arg_no, int);
+			int_int++;	
+			}
+			ret_val += 1;
 
 	}
 		return (ret_val);
