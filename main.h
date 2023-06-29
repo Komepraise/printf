@@ -16,7 +16,7 @@ typedef struct format
 } convert_match;
 
 
-int _print(const char *format, ...);
+int _printf(const char *format, ...);
 int _putchar(char c);
 int print_dec(va_list args);
 int print_int(va_list args);
