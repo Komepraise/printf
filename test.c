@@ -1,6 +1,9 @@
 #include "head.h"
 
-int main(void)
+int main()
 {
+
 	_printf("Howdy\n");
+
 }
+
