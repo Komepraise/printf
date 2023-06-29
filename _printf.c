@@ -26,8 +26,9 @@ int _printf(const char *format, ...)
 			int ret_st = _putstr(va_arg(arg_no, char *));
 			int_int++;
 			ret_val += (ret_st - 1);
-
 		}
+		else if (format[int_int] == '%')
+			_putchar('%');
 			ret_val += 1;
 
 	}
