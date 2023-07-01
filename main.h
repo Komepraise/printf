@@ -30,6 +30,7 @@ int print_HEX_aux(unsigned int numb);
 int print_HEX(va_list arg);
 int _strlenc(const char *s);
 int _strlen(char *s);
+int printf_bin(va_list val);
 int print_bi(va_list arg);
 int print_hex_aux(unsigned long int numb);
 int print_hex(va_list arg);
@@ -42,5 +43,11 @@ int print_oct(va_list arg);
 int print_srev(va_list args);
 int *_strcpy(char *dest, char *src);
 int rev_string(char *s);
+int printf_int(va_list args);
+int printf_bin(va_list val)
+int printf_dec(va_list args)
+int printf_HEX_aux(unsigned int num);
+int printf_char(va_list val);
+int printf_oct(va_list val);
 
-#endif
+#endif /* MAIN_H */
