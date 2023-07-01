@@ -7,6 +7,9 @@
 #include <limits.h>
 #include <unistd.h>
 
+/**
+* struct format - User define type for  the print format
+*/
 typedef struct format
 {
 	char *id;
