@@ -9,6 +9,8 @@
 
 /**
 * struct format - User define type for  the print format
+* @id: id to be used
+* @f: pointer
 */
 typedef struct format
 {
