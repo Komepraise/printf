@@ -26,7 +26,7 @@ int print_HEX(va_list arg)
 		arr[x] = temp % 16;
 		temp /= 16;
 	}
-	for (x = count - 1;x  >= 0; x--)
+	for (x = count - 1; x  >= 0; x--)
 	{
 		if (arr[x] > 9)
 			arr[x] = arr[x] + 7;
