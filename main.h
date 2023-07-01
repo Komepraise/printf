@@ -44,8 +44,7 @@ int print_srev(va_list args);
 int *_strcpy(char *dest, char *src);
 int rev_string(char *s);
 int printf_int(va_list args);
-int printf_bin(va_list val)
-int printf_dec(va_list args)
+int printf_dec(va_list args);
 int printf_HEX_aux(unsigned int num);
 int printf_char(va_list val);
 int printf_oct(va_list val);
